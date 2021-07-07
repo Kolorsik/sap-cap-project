@@ -1,0 +1,51 @@
+//
+###
+GET http://localhost:4004/admin/Producers?
+    &$select=ID,name
+    &$count=true
+    &$orderby=name
+    &sap-language=de
+    //&$expand=phones
+
+###
+
+POST http://localhost:4004/admin/Producers
+Content-Type: application/json
+
+{
+    "ID": 1004,
+    "name": "Huawei"
+}
+
+###
+GET http://localhost:4004/admin/Phones?
+    &$select=title,producer,ID
+    &$expand=producer($select=name,ID)
+    &sap-language=de
+
+###
+
+GET http://localhost:4004/admin/Producers?
+    &$expand=phones($select=title,description,ID,price,stock)
+    //&$filter=ID eq 1000
+
+###
+
+GET http://localhost:4004/browse/Phones?
+&$select=ID,title,description,stock,price
+&sap-language=de
+
+###
+
+POST http://localhost:4004/browse/Orders
+Content-Type: application/json
+
+{ "OrderNo": "July 1 2021", "Items": [
+    {"phone_ID": 200, "amount": 2}
+    //{"phone_ID": 201, "amount": 3}
+]}
+
+###
+
+GET http://localhost:4004/admin/Orders?
+&$expand=Items
