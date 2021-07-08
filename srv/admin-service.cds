@@ -1,4 +1,5 @@
 using { sap.capire.phoneshop as my } from '../db/schema';
+
 service AdminService @(requires:'authenticated-user') {
     entity Phones as projection on my.Phones;
     entity Movies as projection on my.Movies;

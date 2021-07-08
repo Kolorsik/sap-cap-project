@@ -1,7 +1,11 @@
 const cds = require('@sap/cds');
-const { Phones } = cds.entities;
+const { Phones, BusinessPartners } = cds.entities;
 
-module.exports = cds.service.impl(srv => {
+module.exports = cds.service.impl(async srv => {
+
+    //const extSrv = await cds.connect.to('API_BUSINESS_PARTNER');
+
+    //srv.on('READ', BusinessPartners, req => extSrv.tx(req).run(req.query));
 
     srv.after('READ', 'Phones', (each) => {
         if (each.stock > 100) each.title += ' -- 11% discount!!!'

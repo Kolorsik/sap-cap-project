@@ -5,7 +5,7 @@ module.exports = cds.service.impl(srv => {
     srv.before('CREATE', 'Orders', _checkCurrencyCode)
 
     srv.before('READ', 'Orders', (req) => {
-        console.log(req.user);
+        //console.log(req.user);
     })
 
     /*
