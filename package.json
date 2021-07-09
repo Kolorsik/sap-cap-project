@@ -7,11 +7,11 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
-    "express": "^4",
-    "passport": "^0.4.1",
+    "@sap/audit-logging": "^5.0.0",
     "@sap/hana-client": "^2.6.61",
     "@sap/xssec": "^3.2.2",
-    "@sap/audit-logging": "^5.0.0"
+    "express": "^4",
+    "passport": "^0.4.1"
   },
   "devDependencies": {
     "jest": "^27.0.6",
@@ -51,17 +51,10 @@
     "requires": {
       "db": {
         "kind": "sqlite",
+        "model": "*",
         "credentials": {
           "database": "phoneshop.db"
-        },
-        "model": [
-          "db",
-          "srv"
-        ]
-      },
-      "API_BUSINESS_PARTNER": {
-        "kind": "odata",
-        "model": "srv\\external\\API_BUSINESS_PARTNER"
+        }
       }
     },
     "hana": {
@@ -69,9 +62,6 @@
     },
     "uaa": {
       "kind": "xsuaa"
-    },
-    "messaging": {
-        "kind": "file-based-messaging"
     }
   }
 }

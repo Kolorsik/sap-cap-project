@@ -1,0 +1,10 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "PhoneShop",
+            "database": "${workspaceFolder:helloworld}/phoneshop.db"
+        }
+    ]
+}

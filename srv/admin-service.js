@@ -2,7 +2,9 @@ const cds = require('@sap/cds');
 
 module.exports = cds.service.impl(srv => {
 
-    srv.before('CREATE', 'Orders', _checkCurrencyCode)
+    srv.before('CREATE', 'Orders', (orders, req) => {
+        console.log(orders);
+    })
 
     srv.before('READ', 'Orders', (req) => {
         //console.log(req.user);
@@ -29,7 +31,3 @@ module.exports = cds.service.impl(srv => {
     }
     */
 })
-
-function _checkCurrencyCode(req) {
-    req.user.currency[0] === req.data.currency_code || req.reject(403)
-}

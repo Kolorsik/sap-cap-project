@@ -13,6 +13,8 @@ extend service AdminService with {
     entity OrderItems as select from my.OrderItems;
 }
 
+/*
 annotate AdminService.Orders with @(restrict: [
     { grant: 'READ', to: 'admin' }
 ]);
+*/

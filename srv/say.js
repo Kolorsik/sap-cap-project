@@ -8,7 +8,7 @@ module.exports = cds.service.impl(srv => {
         console.log(`[${req.timestamp}]`)
         //const { req, res } = request._;
         const { id } = req.data;
-        const [phone] = await cds.transaction(req).run(
+        const phone = await cds.transaction(req).run(
             SELECT.from(Phones)
             .where({ ID: id })
         )
